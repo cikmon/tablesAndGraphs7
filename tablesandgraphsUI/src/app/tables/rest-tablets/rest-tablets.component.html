@@ -1,0 +1,42 @@
+
+<div class="container">
+  <h2>Users Table</h2>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Email<br/>
+        <input type="text" (mouseover)="applyFilterEmail()"
+               [formControl]="filter" placeholder="Filter states..."></th>
+      <th>Firtname <br/>
+        <input type="text" (mouseover)="applyFilterFirstName()"
+               [formControl]="filter" placeholder="Filter states..."></th>
+      <th>Lastname<br/>
+        <input type="text" (mouseover)="applyFilterLastName()"
+               [formControl]="filter" placeholder="Filter states..."></th>
+      <th>City<br/>
+        <input type="text" (mouseover)="applyFilterCity()"
+               [formControl]="filter" placeholder="Filter states..."></th>
+      <th>Street<br/>
+        <input type="text" (mouseover)="applyFilterStreet()"
+               [formControl]="filter" placeholder="Filter states..."></th>
+      <th>House<br/>
+        <input type="text" (mouseover)="applyFilterHouse()"
+               [formControl]="filter" placeholder="Filter states..."></th>
+    </tr>
+    </thead>
+    <tbody>
+    <ng-container *ngFor="let user of filteredUsers$ | async">
+    <tr>
+      <td>{{user.id}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.firstname}}</td>
+      <td>{{user.lastname}}</td>
+      <td>{{user.city}}</td>
+      <td>{{user.street}}</td>
+      <td>{{user.house}}</td>
+    </tr>
+    </ng-container>
+    </tbody>
+  </table>
+</div>

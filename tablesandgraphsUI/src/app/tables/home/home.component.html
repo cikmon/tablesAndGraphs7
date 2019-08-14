@@ -1,0 +1,28 @@
+<div class="btn-group" role="group" aria-label="Basic example">
+
+  <button type="button" [ngClass]="showComponent===0 ? 'btn btn-info' : 'btn btn-secondary'"
+          (click)="showHomeComponent()">Начальная страница</button>
+  <button type="button" [ngClass]="showComponent===1 ? 'btn btn-info' : 'btn btn-secondary'"
+          (click)="showRestTablesComponent()">Статическая таблица</button>
+  <button type="button" [ngClass]="showComponent===2 ? 'btn btn-info' : 'btn btn-secondary'"
+          (click)="showWebSoketTablesComponent()">Динамический график</button>
+
+
+</div>
+
+
+<div [ngSwitch]="showComponent">
+<ng-template ngSwitchCase="1">
+  <app-rest-tablets></app-rest-tablets>
+</ng-template>
+  <ng-template ngSwitchCase="2">
+    <app-websoket-tables></app-websoket-tables>
+  </ng-template>
+
+  <ng-template ngSwitchCase="0">
+    home component
+  </ng-template>
+
+
+</div>
+

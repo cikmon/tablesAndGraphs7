@@ -1,0 +1,39 @@
+<div class="container">
+  <h2>Users Table</h2>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Валюта</th>
+      <th>Январь</th>
+      <th>Март </th>
+      <th>Август</th>
+      <th>Ноябрь</th>
+    </tr>
+    </thead>
+    <tbody>
+    <ng-container *ngFor="let user of users | async">
+      <tr>
+        <td>{{user.currency}}</td>
+        <ng-container *ngFor="let rate of user.data">
+           <td>{{rate| number:'0.1-2'}}</td>
+        </ng-container>
+      </tr>
+    </ng-container>
+    </tbody>
+  </table>
+</div>
+
+
+
+<kendo-chart [categoryAxis]="{ categories: categories }">
+  <kendo-chart-area [height]="300"  [margin]="0"></kendo-chart-area>
+  <kendo-chart-title text="Dynamics of changes in the exchange rate of the hryvnia"></kendo-chart-title>
+  <kendo-chart-legend position="bottom" orientation="horizontal"></kendo-chart-legend>
+  <kendo-chart-tooltip format="{0}UAH"></kendo-chart-tooltip>
+  <kendo-chart-series>
+    <kendo-chart-series-item *ngFor="let item of users | async"
+                             type="line" style="smooth" [data]="item.data" [name]="item.currency">
+    </kendo-chart-series-item>
+  </kendo-chart-series>
+</kendo-chart>
+
