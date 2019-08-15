@@ -7,13 +7,13 @@ import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { RestTabletsComponent } from './rest-tablets/rest-tablets.component';
-import { WebsoketTablesComponent } from './websoket-tables/websoket-tables.component';
+import { WebSocketTablesComponent } from './websocket-tables/websocket-tables.component';
 import { ChartsModule } from '@progress/kendo-angular-charts';
 import 'hammerjs';
 
 @NgModule({
   declarations: [
-     HomeComponent, RestTabletsComponent, WebsoketTablesComponent
+     HomeComponent, RestTabletsComponent, WebSocketTablesComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, ReactiveFormsModule, ChartsModule,

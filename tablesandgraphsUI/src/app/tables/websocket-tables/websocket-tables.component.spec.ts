@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WebsoketTablesComponent } from './websoket-tables.component';
+import { WebSocketTablesComponent } from './websocket-tables.component';
 
-describe('WebsoketTablesComponent', () => {
-  let component: WebsoketTablesComponent;
-  let fixture: ComponentFixture<WebsoketTablesComponent>;
+describe('WebSocketTablesComponent', () => {
+  let component: WebSocketTablesComponent;
+  let fixture: ComponentFixture<WebSocketTablesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WebsoketTablesComponent ]
+      declarations: [ WebSocketTablesComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WebsoketTablesComponent);
+    fixture = TestBed.createComponent(WebSocketTablesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

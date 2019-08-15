@@ -1,14 +1,7 @@
 import { Injectable } from '@angular/core';
-
 import { Observable } from 'rxjs';
-
-
 import {HttpClient} from '@angular/common/http';
 import {UserFullInformationModel} from '../model/UserFullInformation.model';
-import {RateToHryvnia} from '../model/RateToHryvnia';
-
-
-
 
 
 // @ts-ignore
@@ -32,11 +25,12 @@ export class RestDataSource {
     return this.http.get<UserFullInformationModel[]>(
       this.baseUrl + 'api/getUsersinformation?access_token=' + JSON.parse(window.sessionStorage.getItem('token'))
         .access_token); }
-
-  getRateToHryvnia(): Observable<RateToHryvnia[]> {
-    return this.http.get<RateToHryvnia[]>(
-      this.baseUrl + 'api/getRateToHryvnia?access_token=' + JSON.parse(window.sessionStorage.getItem('token'))
-        .access_token); }
+  getWebsocketURL(): string {
+    return 'ws://localhost:8080/socket?access_token=' + JSON.parse(window.sessionStorage.getItem('token')).access_token;
+  }
+  getWebSocketExampleURL(): string {
+    return '/topic/server-broadcaster';
+  }
 
 }
 

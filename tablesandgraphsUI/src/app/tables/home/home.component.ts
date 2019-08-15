@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
     this.showComponent = 1;
   }
 
-  showWebSoketTablesComponent() {
+  showWebSocketTablesComponent() {
     this.showComponent = 2;
   }
 
