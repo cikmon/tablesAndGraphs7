@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
       .set('username', this.loginForm.controls.username.value)
       .set('password', this.loginForm.controls.password.value)
       .set('grant_type', 'password');
+    window.sessionStorage.removeItem('token');
 
     this.restDataSource.login(body.toString()).subscribe(data => {
       window.sessionStorage.setItem('token', JSON.stringify(data));
