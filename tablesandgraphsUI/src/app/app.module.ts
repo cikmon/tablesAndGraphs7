@@ -6,12 +6,13 @@ import {RestDataSource} from './service/rest.datasource';
 import {LoginComponent} from './login/login.component';
 import {RouterModule} from '@angular/router';
 import {WebGuard} from './web.guard';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import {MatPaginatorModule} from '@angular/material';
 // import { MatTableModule } from '@angular/material';
 import {TablesModule} from './tables/tables.module';
+import {TokenInterceptor} from './service/token.interceptor';
 // import { ServiceWorkerModule } from '@angular/service-worker';
 // import { environment } from '../environments/environment';
 
@@ -31,7 +32,7 @@ import {TablesModule} from './tables/tables.module';
     //   { enabled: environment.production })
 
   ],
-  providers: [RestDataSource, WebGuard],
+  providers: [RestDataSource, WebGuard, {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

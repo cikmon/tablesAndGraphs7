@@ -29,12 +29,4 @@ export class MessagingService {
   public stream(): Observable<Message> {
     return this.messages;
   }
-
-  // public send(url: string, message: any) {
-  //   return this.stompService.publish(url, JSON.stringify(message));
-  // }
-
-  // public state(): BehaviorSubject<StompState> {
-  //   return this.stompService.state;
-  // }
 }

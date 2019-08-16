@@ -23,8 +23,7 @@ export class RestDataSource {
 
   getUsers(): Observable<UserFullInformationModel[]> {
     return this.http.get<UserFullInformationModel[]>(
-      this.baseUrl + 'api/getUsersinformation?access_token=' + JSON.parse(window.sessionStorage.getItem('token'))
-        .access_token); }
+      this.baseUrl + 'api/getUsersinformation' ); }
   getWebsocketURL(): string {
     return 'ws://localhost:8080/socket?access_token=' + JSON.parse(window.sessionStorage.getItem('token')).access_token;
   }
