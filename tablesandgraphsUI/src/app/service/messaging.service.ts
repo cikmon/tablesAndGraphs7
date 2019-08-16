@@ -29,4 +29,7 @@ export class MessagingService {
   public stream(): Observable<Message> {
     return this.messages;
   }
+  public closeConnection() {
+    this.stompService.disconnect();
+  }
 }

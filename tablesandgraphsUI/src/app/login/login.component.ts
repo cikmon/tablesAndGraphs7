@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit {
 
     this.restDataSource.login(body.toString()).subscribe(data => {
       window.sessionStorage.setItem('token', JSON.stringify(data));
-      console.log(window.sessionStorage.getItem('token'));
       this.router.navigate(['/home']);
     }, error => {
 

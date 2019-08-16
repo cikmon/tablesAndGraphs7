@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {RestDataSource} from '../../service/rest.datasource';
 import {Observable, timer, of} from 'rxjs';
 import {RateToHryvnia} from '../../model/RateToHryvnia';
@@ -13,7 +13,7 @@ import { Message } from '@stomp/stompjs';
   styleUrls: ['./websocket-tables.component.css']
 })
 
-export class WebSocketTablesComponent implements OnInit {
+export class WebSocketTablesComponent implements OnInit, OnDestroy {
   constructor(private restDataSourse: RestDataSource) { }
   private messagingService: MessagingService;
   users: Observable<RateToHryvnia[]>;
@@ -28,6 +28,11 @@ export class WebSocketTablesComponent implements OnInit {
 
     });
   }
+
+  ngOnDestroy(): void {
+    this.messagingService.closeConnection();
+  }
+
 
 
 }
