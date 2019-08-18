@@ -19,7 +19,7 @@ import 'hammerjs';
     BrowserModule, HttpClientModule, ReactiveFormsModule, ChartsModule,
     RouterModule.forChild([
       {path: 'home', component: HomeComponent
-        // , canActivate: [WebGuard]
+        , canActivate: [WebGuard]
       },
     ]),
 
